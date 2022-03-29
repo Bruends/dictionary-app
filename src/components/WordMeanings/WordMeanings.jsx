@@ -1,16 +1,17 @@
-import {Box, Container, Text, Heading} from '@chakra-ui/react'
+import {Box, Container, Text, Heading, Divider} from '@chakra-ui/react'
 
 function WordMeanings({ meanings }){
 
     return(
-        <Box maxW="md" p={10} my={5}>
+        <Box  p={10} my={5}>
             <Container>
                 <Heading>Definitions</Heading>
-                {/* render definitions*/}
+                {/* render definitions */}
                 {meanings.map((meaning, index) => (
                     <span key={index}>
-                        <Text>part of speech: {meaning.partOfSpeech}</Text>                    
-                        <Text>Definition: {meaning.definitions[0].definition}</Text>
+                        <Text><strong>part of speech: </strong> {meaning.partOfSpeech}</Text>                    
+                        <Text><strong>Definition: </strong>{meaning.definitions[0].definition}</Text>
+                        <Divider />
                     </span>
                 ))}
             </Container>
