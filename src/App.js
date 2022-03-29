@@ -1,41 +1,41 @@
 import React from 'react';
-import {
-  ChakraProvider,
-  Box,
-  Text,
-  Link,
-  VStack,
-  Code,
-  Grid,
-  theme,
-} from '@chakra-ui/react';
+import { ChakraProvider, theme, Stack} from '@chakra-ui/react';
 import { ColorModeSwitcher } from './ColorModeSwitcher';
-import { Logo } from './Logo';
+import Search from './components/Search'
+import WordInfo from './components/BasicWordInfo';
+import WordMeanings from './components/WordMeanings';
+
+const test = {
+  word: 'text',
+  phonetic: [
+    {
+      text: '/tɛkst/',
+      audio: 'https://api.dictionaryapi.dev/media/pronunciations/en/text-us.mp3'
+    }
+  ],
+  origin: "algo",
+  meanings: [
+    {
+      partOfSpeech: "noun",
+      definitions: [
+        { definition : "some definition" }
+      ]
+    }
+  ]
+}
 
 function App() {
   return (
-    <ChakraProvider theme={theme}>
-      <Box textAlign="center" fontSize="xl">
-        <Grid minH="100vh" p={3}>
-          <ColorModeSwitcher justifySelf="flex-end" />
-          <VStack spacing={8}>
-            <Logo h="40vmin" pointerEvents="none" />
-            <Text>
-              Edit <Code fontSize="xl">src/App.js</Code> and save to reload.
-            </Text>
-            <Link
-              color="teal.500"
-              href="https://chakra-ui.com"
-              fontSize="2xl"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Learn Chakra
-            </Link>
-          </VStack>
-        </Grid>
-      </Box>
+    <>
+    <ChakraProvider theme={theme}>      
+      <ColorModeSwitcher justifySelf="flex-end" />
+      <Search />
+      <Stack wrap="wrap" direction="row" justify="center">
+        <WordInfo {...test} />
+        <WordMeanings {...test} />
+      </Stack>
     </ChakraProvider>
+    </>
   );
 }
 
