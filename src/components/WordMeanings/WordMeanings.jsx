@@ -1,19 +1,27 @@
-import {Box, Container, Text, Heading, Divider} from '@chakra-ui/react'
+import {Box, Container, Text, Heading, Divider} from '@chakra-ui/react';
+import { Tabs, TabList, TabPanels, Tab, TabPanel } from '@chakra-ui/react'
 
 function WordMeanings({ meanings }){
 
     return(
-        <Box  p={10} my={5}>
+        <Box w="lg" p={10} my={5}>
             <Container>
                 <Heading>Definitions</Heading>
-                {/* render definitions */}
-                {meanings.map((meaning, index) => (
-                    <span key={index}>
-                        <Text><strong>part of speech: </strong> {meaning.partOfSpeech}</Text>                    
-                        <Text><strong>Definition: </strong>{meaning.definitions[0].definition}</Text>
-                        <Divider />
-                    </span>
-                ))}
+                <Tabs>
+                    {/* render Tab headers */}
+                    <TabList>
+                        {meanings.map((meaning, index) => (                        
+                            <Tab key={'h' + index}>{meaning.partOfSpeech}</Tab>                    
+                        ))}
+                    </TabList>
+                    {/* render Tab contents */}
+                    <TabPanels>
+                        {meanings.map((meaning, index) => (                        
+                            <TabPanel key={'d' + index}>{meaning.definitions[0].definition}</TabPanel>                    
+                        ))}
+                    </TabPanels>
+                
+                </Tabs>
             </Container>
         </Box>
     );
