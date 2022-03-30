@@ -1,6 +1,6 @@
 # Dictionary React App
 a simple app that i've made to study React, Redux and Chackra UI.  
-Search for words pronunciation a definition using a free API
+Search for a word pronunciation and definitions.
 
 ![demo](gif/demonstration.gif)
 
