@@ -1,8 +1,8 @@
-# Word Dictionary App
+# Dictionary React App
 a simple app that i've made to study React, Redux and Chackra UI.  
 Search for words pronunciation a definition using a free API
 
-![demo](gif/demo.gif)
+![demo](gif/demonstration.gif)
 
 # Techs
 - React
@@ -17,7 +17,7 @@ clone the repo:
 git clone https://github.com/Bruends/dictionary-app.git
 ```
 
-install the dependencies
+install the dependencies:
 ```
 npm install
 ```
