@@ -1,1 +1,1 @@
-export {default} from './WordMeanings'
+export { default } from './WordMeanings';

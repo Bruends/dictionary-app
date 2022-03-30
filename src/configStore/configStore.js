@@ -1,26 +1,25 @@
-import { configureStore, applyMiddleware } from '@reduxjs/toolkit';
-
+import { configureStore } from '@reduxjs/toolkit';
 
 const initialState = {
-    loading: false,
-    data: null,
-    error: null
-}
+  loading: false,
+  data: null,
+  error: null,
+};
 
 // config the reducer
-const wordReducer = (state = initialState, action) => {
-    switch(action.type) {
-        case 'FETCH_START':
-            return {data: null, loading: true, error: null}
-        case 'FETCH_SUCCESS':
-            return {...state, loading: false, data: action.payload}
-        case 'FETCH_ERROR':
-            return {...state, loading: false, error: action.payload}
-        default:
-            return state; 
-    }
-}
+const asyncReducer = (state = initialState, action) => {
+  switch (action.type) {
+    case 'FETCH_START':
+      return { data: null, loading: true, error: null };
+    case 'FETCH_SUCCESS':
+      return { ...state, loading: false, data: action.payload };
+    case 'FETCH_ERROR':
+      return { ...state, loading: false, error: action.payload };
+    default:
+      return state;
+  }
+};
 
-const store = configureStore({reducer: wordReducer});
+const store = configureStore({ reducer: asyncReducer });
 
-export default store
+export default store;
