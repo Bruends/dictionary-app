@@ -33,6 +33,7 @@ function Search() {
             size="lg"
             borderColor="purple.500"
             focusBorderColor="purple.400"
+            required
           />
 
           <Button background="purple.400" type="submit">
